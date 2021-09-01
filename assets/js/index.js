@@ -1,3 +1,9 @@
+/**
+ * Author Ronald Tayie Ngwenya
+ * Email: 1999roniengwe@gmail.com
+ * Instagram: @ronald_t_ngwenya
+ * LinkedIn: https://www.linkedin.com/in/ronald-t-ngwenya-96281a164
+ */
 // get all boxes
 const boxes = document.querySelectorAll('.box')
 //add event listener to all boxes
