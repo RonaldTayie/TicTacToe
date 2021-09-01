@@ -1,0 +1,215 @@
+html,body {
+    background-color: #222;
+}
+
+header {
+    width:100%;
+    height: 100px;
+    position: fixed;
+}
+
+header .brand {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #900C3F;
+}
+header ul {
+    padding-right: 15px;
+    float: right;
+    list-style: none;
+    display: flex;
+}
+header li {
+    padding: 4px;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.player span {
+    width: 45px;
+    height: 45px;
+    margin: 2px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+
+}
+
+.player.X span::before,
+.player.X span::after {
+    content: '';
+    width: 5px;
+    height: 30px;
+    position: absolute;
+    background-color: #900C3F;
+    border-radius: 5px;
+}
+
+.player.X span::before {
+    transform: rotate(45deg);
+}
+.player.X span::after {
+    transform: rotate(-45deg);
+}
+
+.player.Circle span::before,
+.player.Circle span::after {
+    content: '';
+    position: absolute;
+    background-color: #900C3F;
+    border-radius: 50%;
+}
+
+.player.Circle span::before {
+    width: 40px;
+    height: 40px;
+}
+.player.Circle span::after {
+    width: 30px;
+    height: 30px;
+    background: #ccc;
+}
+
+.wrapper {
+    width:100%;
+    height: 70vh;
+    color:#ccc;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.board {
+    width: 310px;
+    height: 310px;
+    background-color: #ccc;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+}
+.box {
+    background-color: #222;
+    margin: 2px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.box.x::before,
+.box.x::after{
+    background-color: #222;
+}
+
+.box.x,
+.box.circle {
+    background-color: #ccc;
+    cursor: not-allowed;
+    border: 1px solid #222;
+}
+
+/**
+     when board has a class of x.
+     if a box does not have a class of x and does not have a class if circle
+
+*/
+.board.x .box:not(.x):not(.circle):hover::before,
+.board.x .box:not(.x):not(.circle):hover::after {
+    background-color: lightgray;
+}
+
+.box.x::before,
+.box.x::after,
+.board.x .box:not(.x):not(.circle):hover::before,
+.board.x .box:not(.x):not(.circle):hover::after {
+    content: '';
+    width: 10px;
+    height: 60px;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.box.x::before,
+.board.x .box:not(.x):not(.circle):hover::before{
+    transform: rotate(45deg);
+}
+
+.box.x::after,
+.board.x .box:not(.x):not(.circle):hover::after{
+    transform: rotate(-45deg); 
+}
+
+
+.box.circle::before,
+.box.circle::after,
+.board.circle .box:not(.x):not(.circle):hover::before,
+.board.circle .box:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(200, 200, 200, 0.9);
+}
+.box.circle::before,
+.board.circle .box:not(.x):not(.circle):hover::before{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: 5px solid #222;
+}
+
+.message {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    position: fixed;
+    z-index: 9;
+    color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    visibility: hidden;
+}
+.message.show {
+    visibility: visible;
+}
+
+.message .panel{
+    width: 60%;
+    height: 50vh;
+    background-color: #900C3F;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.message button {
+    padding:10px;
+    border: 2px solid #222;
+    background-color: #900C3F;
+    color: #ccc;
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-left: auto;
+}
+.message button:hover {
+    transition: 650ms ease-in-out;
+    background-color: #222;
+    border-color: #ccc;
+    cursor: pointer;
+
+}
